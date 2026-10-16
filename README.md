@@ -41,12 +41,12 @@ El botón **Show** muestra el detalle del producto.
 ## 2. ✏️ Evidencia de acciones de Modificar (Imágenes)
 
 ### 2.1 Formulario de edición – `products/{product}/edit`
-El botón **Edit** abre el mismo formulario con los datos actuales cargados. Aquí se cambian los valores del producto.
+El botón **Edit** abre el formulario *Update Product* con los datos actuales cargados (`manzana`, precio `0.25`, stock `10`). Aquí se cambia el valor que se desea modificar; en este caso, el **stock de 10 a 11**.
 
 ![Formulario de edición](imagenes/modificar_01_formulario_editar.png)
 
 ### 2.2 Registro modificado
-Al presionar **Submit**, el controlador ejecuta `update()` y el listado muestra los datos actualizados.
+Al presionar **Submit**, el controlador ejecuta `update()`, aparece el mensaje *Product updated successfully* y el listado muestra el stock actualizado a `11`.
 
 ![Listado con el registro modificado](imagenes/modificar_02_listado_modificado.png)
 
@@ -55,12 +55,12 @@ Al presionar **Submit**, el controlador ejecuta `update()` y el listado muestra 
 ## 3. 🗑️ Evidencia de acciones de Eliminar (Imágenes)
 
 ### 3.1 Antes de eliminar
-Listado con el producto que se va a borrar.
+Al presionar **Delete**, el navegador pide confirmación con el mensaje *Are you sure to delete?*. Se acepta para continuar.
 
 ![Antes de eliminar](imagenes/eliminar_01_antes.png)
 
 ### 3.2 Después de eliminar
-El botón **Delete** ejecuta `destroy()` y el producto desaparece del listado y de la tabla `products`.
+Al aceptar, el controlador ejecuta `destroy()`, aparece el mensaje *Product deleted successfully* y el producto desaparece del listado y de la tabla `products`.
 
 ![Después de eliminar](imagenes/eliminar_02_despues.png)
 
@@ -78,7 +78,7 @@ El botón **Delete** ejecuta `destroy()` y el producto desaparece del listado y 
 | Botón **Submit** | Envía y guarda los datos | Formularios |
 | Botón **Show** | Muestra el detalle del producto | Listado |
 | Botón **Edit** | Abre el formulario de edición | Listado |
-| Botón **Delete** | Elimina el producto | Listado |
+| Botón **Delete** | Elimina el producto (con confirmación del navegador) | Listado |
 | Botón **Back** | Regresa al listado | Vista Show |
 | Tabla | Lista los registros (No, Description, Price, Stock) | Listado |
 | Barra de navegación | Navegación general (layout con Bootstrap) | Todas las vistas |
