@@ -1,58 +1,206 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# CRUD Rápido con Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Laboratorio #2: CRUD de productos con Laravel, generado con `ibex/crud-generator` y Bootstrap.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 1. Detalles del laboratorio
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| Campo | Detalle |
+|---|---|
+| Curso | Herramientas de la Programación Aplicada I |
+| Laboratorio | #2 – Acercamiento a un CRUD rápido en Laravel |
+| Docente | Ing. Irina Fong |
+| Objetivo | Crear una aplicación web que permita **crear, leer, actualizar y eliminar** productos usando Laravel, migraciones y un generador de CRUD |
+| Tabla utilizada | `products` (`id`, `description`, `price`, `stock`, `timestamps`) |
+| Ruta principal | `http://127.0.0.1:8000/products` |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 2. Evidencias
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 2.1 Insertar registros
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Formulario de creación**
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+![Formulario de creación](docs/img/01-crear-formulario.png)
 
-## Agentic Development
+**Registro insertado en el listado**
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+![Registro insertado](docs/img/02-crear-listado.png)
+
+### 2.2 Modificar registros
+
+**Formulario de edición**
+
+![Formulario de edición](docs/img/03-modificar-formulario.png)
+
+**Listado con el registro modificado**
+
+![Registro modificado](docs/img/04-modificar-listado.png)
+
+### 2.3 Eliminar registros
+
+**Antes de eliminar**
+
+![Antes de eliminar](docs/img/05-eliminar-antes.png)
+
+**Después de eliminar**
+
+![Después de eliminar](docs/img/06-eliminar-despues.png)
+
+### 2.4 Otras vistas
+
+**Detalle del producto (Show)**
+
+![Detalle del producto](docs/img/07-show.png)
+
+---
+
+## 3. Controles utilizados
+
+| Control | Dónde se usa | Función |
+|---|---|---|
+| Campo de texto (`input text`) | Formulario: *Description* | Ingresar la descripción del producto |
+| Campo numérico (`input number`) | Formulario: *Price* y *Stock* | Ingresar precio y existencias |
+| Botón **Create New** | Listado | Abre el formulario de creación |
+| Botón **Submit** | Formularios | Envía y guarda los datos |
+| Botón **Show** | Listado | Muestra el detalle de un producto |
+| Botón **Edit** | Listado | Abre el formulario de edición |
+| Botón **Delete** | Listado | Elimina el producto |
+| Botón **Back** | Vista Show | Regresa al listado |
+| Tabla | Listado | Muestra los registros (No, Description, Price, Stock) |
+| Barra de navegación | Todas las vistas | Navegación general (layout de Bootstrap) |
+
+---
+
+## 4. Tecnologías y versiones
+
+| Tecnología | Versión |
+|---|---|
+| Laravel | _(ejecutar `php artisan --version`)_ |
+| PHP | _(ejecutar `php -v`)_ |
+| MySQL (WAMP) | _(ver en phpMyAdmin)_ |
+| WampServer | _(ver en el menú de WAMP)_ |
+| Composer | _(ejecutar `composer -V`)_ |
+| Node.js | _(ejecutar `node -v`)_ |
+| npm | _(ejecutar `npm -v`)_ |
+| laravel/ui | 4.6.3 |
+| ibex/crud-generator | _(ver en `composer.json`)_ |
+| Bootstrap | Incluido con `laravel/ui` |
+| Vite | Incluido con Laravel |
+
+---
+
+## 5. Proceso de instalación
+
+### Requisitos previos
+
+- PHP, Composer, Node.js y npm instalados
+- WampServer en ejecución (Apache y MySQL en verde)
+- Git
+
+### Pasos para ejecutar el proyecto desde GitHub
+
+1. **Clonar el repositorio**
+
+   ```bash
+   git clone https://github.com/jazidsanchez-create/Lab_crud-rapido.git
+   cd Lab_crud-rapido
+   ```
+
+2. **Instalar dependencias**
+
+   ```bash
+   composer install
+   npm install
+   ```
+
+3. **Crear el archivo de entorno**
+
+   ```bash
+   copy .env.example .env
+   php artisan key:generate
+   ```
+
+4. **Crear la base de datos** `crud_rapido` en phpMyAdmin (`http://localhost/phpmyadmin`).
+
+5. **Configurar el `.env`**
+
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=crud_rapido
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+6. **Ejecutar las migraciones**
+
+   ```bash
+   php artisan config:clear
+   php artisan migrate
+   ```
+
+7. **Compilar el frontend** (dejar esta terminal abierta)
+
+   ```bash
+   npm run dev
+   ```
+
+8. **Levantar el servidor** (en otra terminal)
+
+   ```bash
+   php artisan serve
+   ```
+
+9. **Abrir en el navegador:** <http://127.0.0.1:8000/products>
+
+### Cómo se creó el proyecto (resumen)
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+laravel new crud_rapido
+php artisan make:model Product -m
+php artisan migrate
+composer require ibex/crud-generator --dev
+php artisan vendor:publish --tag=crud
+php artisan make:crud products
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Y se registró la ruta en `routes/web.php`:
 
-## Contributing
+```php
+Route::resource('products', ProductController::class);
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Problemas comunes y soluciones
 
-## Code of Conduct
+| Problema | Solución |
+|---|---|
+| `Specified key was too long; max key length is 1000 bytes` | Agregar `Schema::defaultStringLength(191);` en `AppServiceProvider::boot()` y poner `'engine' => 'InnoDB'` en `config/database.php`; luego `php artisan migrate:fresh` |
+| Configuración del `.env` no se aplica | `php artisan config:clear` |
+| Clase no encontrada | `composer dump-autoload` |
+| Página sin estilos o error de Vite manifest | Ejecutar `npm install` y mantener `npm run dev` activo |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 6. Detalles del autor
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+| Campo | Detalle |
+|---|---|
+| Autor | Jazid Sánchez |
+| Fecha | 16 de octubre de 2026 |
+| Repositorio | <https://github.com/jazidsanchez-create/Lab_crud-rapido> |
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 7. Referencias
+
+- Guía del Laboratorio #2 de CRUD con Laravel – Ing. Irina Fong.
+- Tutorial en video: <https://www.youtube.com/watch?v=j5baJsM_Adc&t=111s>
+- Documentación de Laravel: <https://laravel.com/docs>
+- Migraciones en Laravel: <https://laravel.com/docs/migrations>
+- Asignación masiva (`$fillable`): <https://laravel.com/docs/eloquent#mass-assignment>
+- Laravel UI: <https://github.com/laravel/ui>
+- Ibex CRUD Generator: <https://github.com/awais-vteams/laravel-crud-generator>
